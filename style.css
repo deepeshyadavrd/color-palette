@@ -94,3 +94,24 @@ input[type="text"] {
 .search .image:hover {
     border-color: var(--quaternary-color);
 }
+
+.options {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+select {
+    width: 100%;
+    height: 60px;
+    border: none;
+    padding: 0 10px;
+    font-size: 16px;
+    outline: none;
+    color: var(--quaternary-color);
+    background-color: var(--primary-color);
+}
+
+select#palette-count {
+    width: 25%;
+}
