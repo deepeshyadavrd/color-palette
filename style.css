@@ -214,3 +214,16 @@ select#palette-count {
     background-color: var(--primary-color);
     cursor: pointer;
 }
+
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    padding: 10px 20px;
+    z-index: 999;
+    pointer-events: none;
+    color: var(--quaternary-color);
+    background-color: var(--secondary-color);
+}
