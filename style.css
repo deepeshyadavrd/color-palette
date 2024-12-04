@@ -300,4 +300,41 @@ select#palette-count {
         width: 48px;
         height: 48px;
     }
+
+    select, .btn {
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .palette .color {
+        height: 70px;
+    }
+
+    .palette .color .overlay {
+        font-size: 10px;
+    }
+
+    .palette .color .code {
+        line-height: 20px;
+        width: 50px;
+        padding: 0 5px;
+    }
+
+    .palette .color .icons div {
+        width: 20px;
+        height: 20px;
+    }
+
+    .switch .slider{
+        height: 25px;
+        width: 50px;
+    }
+
+    .switch .slider::before {
+        height: 15px;
+        width: 15px;
+    }
+    .switch #toggle:checked ~ .slider::before{
+        transform: translateX(25px);
+    }
 }
