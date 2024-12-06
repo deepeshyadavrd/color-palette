@@ -27,4 +27,11 @@ function generateAnalogousPalette(hsl, count) {
 
         palette.push([newHue, saturation, lightness])
     }
+    return palette;
 }
+
+let hsl = [150, 60, 60];
+
+let palette = generateAnalogousPalette(hsl, 6);
+
+console.log(palette);
