@@ -30,8 +30,23 @@ function generateAnalogousPalette(hsl, count) {
     return palette;
 }
 
-let hsl = [150, 60, 60];
+function generateMonochromaticPalette(hsl, count){
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
 
-let palette = generateAnalogousPalette(hsl, 6);
+    for(let i=0; i < count; i++){
+        let newLightness = lightness + 10 * i;
+        if(newLightness > 100){
+            newLightness -=100;
+        }
+
+        palette.push([hue, saturation, newLightness])
+    }
+    return palette;
+}
+
+let hsl = [150, 55, 55];
+
+let palette = generateMonochromaticPalette(hsl, 6);
 
 console.log(palette);
