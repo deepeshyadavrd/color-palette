@@ -120,8 +120,23 @@ function generateTetradicPalette(hsl, count){
     return palette;
 }
 
+
+function generateSquarePalette(hsl, count){
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
+
+    for(let i=0; i < count; i++){
+        let newHue = hue + 60 * i;
+        if(newHue > 360){
+            newHue -=360;
+        }
+        
+        palette.push([newHue, saturation, lightness])
+    }
+    return palette;
+}
 let hsl = [155, 55, 55];
 
-let palette = generateTetradicPalette(hsl, 6);
+let palette = generateSquarePalette(hsl, 6);
 
 console.log(palette);
