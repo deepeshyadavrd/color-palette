@@ -75,6 +75,21 @@ function generateCompoundPalette(hsl, count){
     return palette;
 }
 
+function generateCompoundPalette(hsl, count){
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
+
+    for(let i=0; i < count; i++){
+        let newHue = hue + 150 * i;
+        if(newHue > 360){
+            newHue -=360;
+        }
+
+        palette.push([newHue, saturation, lightness])
+    }
+    return palette;
+}
+
 function generateShadesPalette(hsl, count){
     const palette = [];
     const [hue, saturation, lightness] = hsl;
@@ -91,6 +106,6 @@ function generateShadesPalette(hsl, count){
 }
 let hsl = [155, 55, 55];
 
-let palette = generateShadesPalette(hsl, 6);
+let palette = generateTriadicPalette(hsl, 6);
 
 console.log(palette);
