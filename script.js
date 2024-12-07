@@ -60,8 +60,23 @@ function generateTriadicPalette(hsl, count){
     return palette;
 }
 
+function generateCompoundPalette(hsl, count){
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
+
+    for(let i=0; i < count; i++){
+        let newHue = hue + 150 * i;
+        if(newHue > 360){
+            newHue -=360;
+        }
+
+        palette.push([newHue, saturation, lightness])
+    }
+    return palette;
+}
+
 let hsl = [150, 55, 55];
 
-let palette = generateTriadicPalette(hsl, 6);
+let palette = generateCompoundPalette(hsl, 6);
 
 console.log(palette);
