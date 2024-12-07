@@ -106,6 +106,6 @@ function generateShadesPalette(hsl, count){
 }
 let hsl = [155, 55, 55];
 
-let palette = generateTriadicPalette(hsl, 6);
+let palette = generateShadesPalette(hsl, 6);
 
 console.log(palette);
