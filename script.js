@@ -135,6 +135,14 @@ function generateSquarePalette(hsl, count){
     }
     return palette;
 }
+
+function generateRelatedColorPalette(hsl, count){
+    const palette = [];
+    const [hue, saturation, lightness] = hsl;
+
+    palette.push(hue, (saturation + 20 * 100), lightness)
+}
+
 let hsl = [155, 55, 55];
 
 let palette = generateSquarePalette(hsl, 6);
