@@ -75,21 +75,6 @@ function generateCompoundPalette(hsl, count){
     return palette;
 }
 
-function generateCompoundPalette(hsl, count){
-    const palette = [];
-    const [hue, saturation, lightness] = hsl;
-
-    for(let i=0; i < count; i++){
-        let newHue = hue + 150 * i;
-        if(newHue > 360){
-            newHue -=360;
-        }
-
-        palette.push([newHue, saturation, lightness])
-    }
-    return palette;
-}
-
 function generateShadesPalette(hsl, count){
     const palette = [];
     const [hue, saturation, lightness] = hsl;
@@ -120,7 +105,6 @@ function generateTetradicPalette(hsl, count){
     return palette;
 }
 
-
 function generateSquarePalette(hsl, count){
     const palette = [];
     const [hue, saturation, lightness] = hsl;
@@ -139,19 +123,47 @@ function generateSquarePalette(hsl, count){
 function generateRelatedColorPalette(hsl, count){
     const palette = [];
     const [hue, saturation, lightness] = hsl;
-
+    // saturation
     palette.push([hue, (saturation + 20) % 100, lightness]);
     palette.push([hue, (saturation - 20) % 100, lightness]);
-
+    // lightness
     palette.push([hue, saturation, (lightness + 20) % 100]);
     palette.push([hue, saturation, (lightness - 20) % 100]);
-
+    // hue
     palette.push([(hue + 20) % 360, saturation, lightness]);
     palette.push([(hue - 20) % 360, saturation, lightness]);
+
+    // suffle array
+    for(let i = palette.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i+1));
+        [palette[i], palette[j]] = [palette[j], palette[i]]
+    }
 
     return palette;
 }
 
+
+function generatePalette(hsl, type, count){
+    switch(type){
+        case "analogous":
+            return generateAnalogousPalette(hsl, count);
+        case "monochromatic":
+            return generateMonochromaticPalette(hsl, count);
+        case "triadic":
+            return generateTriadicPalette(hsl, count);
+        case "compound":
+            return generateCompoundPalette(hsl, count);
+        case "shades":
+            return generateShadesPalette(hsl, count);
+        case "tetradic":
+            return generateTetradicPalette(hsl, count);
+        case "square":
+            return generateSquarePalette(hsl, count);
+        case "related":
+            return generateRelatedColorPalette(hsl, count);
+        
+    }
+}
 let hsl = [155, 55, 55];
 
 let palette = generateRelatedColorPalette(hsl, 6);
