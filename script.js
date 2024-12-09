@@ -182,16 +182,23 @@ function getHslFromcolor(color){
         temp.style.color = color;
         document.body.appendChild(temp);
 
-        let style = window.getComputedStyle(temp, null);
+        let styles = window.getComputedStyle(temp, null);
 
+        let rgb = styles.getPropertyValue("color")
+        document.body.removeChild("temp");
+        rgb = removeRGB(rgb);
     }
 }
 
 function isValidColor(color){
     return CSS.supports("color", color);
 }
-let hsl = [255, 55, 55];
 
-let palette = generatePalette(hsl, "related", 6);
+function removeRGB(rgb){
+    return rgb.replace("rgb(", "").replace(")", "").split(",")
+}
 
-console.log(palette);
+
+let color = isValidColor("white");
+
+console.log(color);
