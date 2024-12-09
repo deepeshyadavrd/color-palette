@@ -164,8 +164,34 @@ function generatePalette(hsl, type, count){
         
     }
 }
-let hsl = [155, 55, 55];
 
-let palette = generateRelatedColorPalette(hsl, 6);
+//  function to generate html  of palette
+
+function generatePaletteHtml(type, container){
+    let color = currentColor;
+    let count = currentType;
+
+    let hsl = getHslFromcolor(color)
+}
+
+function getHslFromcolor(color){
+    let hsl;
+    if(isValidColor(color)){
+
+        let temp = document.createElement("div");
+        temp.style.color = color;
+        document.body.appendChild(temp);
+
+        let style = window.getComputedStyle(temp, null);
+
+    }
+}
+
+function isValidColor(color){
+    return CSS.supports("color", color);
+}
+let hsl = [255, 55, 55];
+
+let palette = generatePalette(hsl, "related", 6);
 
 console.log(palette);
