@@ -140,7 +140,10 @@ function generateRelatedColorPalette(hsl, count){
     const palette = [];
     const [hue, saturation, lightness] = hsl;
 
-    palette.push(hue, (saturation + 20 * 100), lightness)
+    palette.push([hue, (saturation + 20) % 100, lightness]);
+    palette.push([hue, (saturation - 20) % 100, lightness]);
+    palette.push([hue, saturation, (lightness + 20) % 100]);
+    palette.push([hue, saturation, (lightness - 20) % 100]);
 }
 
 let hsl = [155, 55, 55];
