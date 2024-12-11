@@ -195,10 +195,10 @@ function isValidColor(color){
 }
 
 function removeRGB(rgb){
-    return rgb.replace("rgb(", "").replace(")", "").split(",")
+    return rgb.replace("rgb(", "").replace(")", "").split(",");
 }
 
 
-let color = isValidColor("white");
+let color = isValidColor("rgb(255,255,255)");
 
 console.log(color);
