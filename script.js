@@ -172,6 +172,15 @@ function generatePaletteHtml(type, container){
     let count = currentType;
 
     let hsl = getHslFromcolor(color)
+
+    if(!hsl) return;
+
+    let palette = [];
+    container.innerHTML = "";
+        palette = generatePalette(hsl, type, count);
+        palette.forEach((color)=> {
+            color = HslToHex(color)
+        })
 }
 
 function getHslFromcolor(color){
@@ -189,6 +198,7 @@ function getHslFromcolor(color){
         rgb = removeRGB(rgb);
         hsl = rgbToHsl(rgb);
     }
+    return hsl;
 }
 
 function isValidColor(color){
@@ -227,13 +237,21 @@ function rgbToHsl(rgb){
         h += 360;
     }
     if(delta !== 0){
-        s = Math.round((delta / (1 - Math.abs(2 * 1 -1))) * 100);
+        s = Math.round((delta / (1 - Math.abs(2 * l -1))) * 100);
     }
     l = Math.round(l * 100)
 
     return [h,s,l];
 }
 
-let rgb = [255,255,255];
+function HslToHex(hsl){
+    let h = hsl[0];
+    let s = hsl[1];
+    let l = hsl[2];
+
+        l /= 100;
+        const a =(s * Math.min())
+}
+let rgb = [0,255,255];
 
 console.log(rgbToHsl(rgb));
