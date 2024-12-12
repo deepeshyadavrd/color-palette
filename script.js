@@ -180,6 +180,10 @@ function generatePaletteHtml(type, container){
         palette = generatePalette(hsl, type, count);
         palette.forEach((color)=> {
             color = HslToHex(color)
+            const colorEl = document.createElement("div>");
+            colorEl.classList.add("color");
+            colorEl.style.backgroundColor = color;
+            container.appendChild(colorEl);
         })
 }
 
@@ -258,6 +262,4 @@ function HslToHex(hsl){
         }
         return `#${f(0)}${f(8)}${f(4)}`;
 }
-let hsl = [100,50,50];
-
-console.log(HslToHex(hsl));
+generatePaletteHtml("analogous", pa)
