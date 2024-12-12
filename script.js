@@ -169,7 +169,7 @@ function generatePalette(hsl, type, count){
 
 function generatePaletteHtml(type, container){
     let color = currentColor;
-    let count = currentType;
+    let count = currentCount;
 
     let hsl = getHslFromcolor(color)
 
@@ -180,11 +180,11 @@ function generatePaletteHtml(type, container){
         palette = generatePalette(hsl, type, count);
         palette.forEach((color)=> {
             color = HslToHex(color)
-            const colorEl = document.createElement("div>");
+            const colorEl = document.createElement("div");
             colorEl.classList.add("color");
             colorEl.style.backgroundColor = color;
             container.appendChild(colorEl);
-        })
+        });
 }
 
 function getHslFromcolor(color){
@@ -198,7 +198,7 @@ function getHslFromcolor(color){
         let styles = window.getComputedStyle(temp, null);
 
         let rgb = styles.getPropertyValue("color")
-        document.body.removeChild("temp");
+        document.body.removeChild(temp);
         rgb = removeRGB(rgb);
         hsl = rgbToHsl(rgb);
     }
@@ -262,4 +262,4 @@ function HslToHex(hsl){
         }
         return `#${f(0)}${f(8)}${f(4)}`;
 }
-generatePaletteHtml("analogous", pa)
+generatePaletteHtml("analogous", paletteContainer);
