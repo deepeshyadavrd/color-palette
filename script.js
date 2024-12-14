@@ -1,4 +1,4 @@
-const searchInput = document.querySelector(".search-input"),
+const searchInput = document.querySelector("#search-input"),
     searchColor = document.querySelector(".search-color"),
     searchImage = document.querySelector("#search-image"),
     typeSelect = document.querySelector("#palette-type"),
@@ -265,3 +265,17 @@ function HslToHex(hsl){
 }
 generatePaletteHtml(currentType, paletteContainer);
 generatePaletteHtml("analogous", relatedContainer);
+
+
+//  generate palette when color written in input field
+
+searchInput.addEventListener("keyup", (e) => {
+    const value = e.target.value;
+    if(isValidColor(value)){
+        //  if color is valid
+        searchColor.style.backgroundColor = value;
+        currentColor = value;
+        generatePaletteHtml(currentType, paletteContainer);
+        generatePaletteHtml("related", relatedContainer);
+    }
+})
