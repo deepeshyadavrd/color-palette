@@ -263,4 +263,5 @@ function HslToHex(hsl){
         }
         return `#${f(0)}${f(8)}${f(4)}`;
 }
-generatePaletteHtml("analogous", paletteContainer);
+generatePaletteHtml(currentType, paletteContainer);
+generatePaletteHtml("analogous", relatedContainer);
