@@ -2,6 +2,7 @@ const searchInput = document.querySelector("#search-input"),
     searchColor = document.querySelector(".search-color"),
     searchImage = document.querySelector("#search-image"),
     typeSelect = document.querySelector("#palette-type"),
+    typeText = document.querySelector("#type-text"),
     countSelect = document.querySelector("#palette-count"),
     randomBtn = document.querySelector("#random-btn"),
     paletteContainer = document.querySelector("#palette"),
@@ -283,5 +284,6 @@ searchInput.addEventListener("keyup", (e) => {
 typeSelect.addEventListener("change", (e) => {
     const value = e.target.value;
     currentType = value;
+    typeText.textContent = value + "Palette";
     generatePaletteHtml(currentType, paletteContainer);
 })
