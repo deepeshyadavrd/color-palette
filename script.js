@@ -264,6 +264,16 @@ function HslToHex(hsl){
         }
         return `#${f(0)}${f(8)}${f(4)}`;
 }
+
+function getRandomColor(){
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for(let i =0; i<6; i++){
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 generatePaletteHtml(currentType, paletteContainer);
 generatePaletteHtml("analogous", relatedContainer);
 
@@ -296,15 +306,8 @@ countSelect.addEventListener("change", (e) => {
 
 randomBtn.addEventListener("click", () => {
     const randomColor = getRandomColor();
+    searchInput.value = randomColor;
+    searchColor.style.backgroundColor = randomColor;
+    currentColor = randomColor;
+    generatePaletteHtml(currentType, paletteContainer);
 })
-
-function getRandomColor(){
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for(let i =0; i<6; i++){
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-console.log(getRandomColor());
