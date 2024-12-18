@@ -187,7 +187,7 @@ function generatePaletteHtml(type, container){
             container.appendChild(colorEl);
         });
 }
-
+ 
 function getHslFromcolor(color){
     let hsl;
     if(isValidColor(color)){
