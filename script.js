@@ -165,7 +165,7 @@ function generatePalette(hsl, type, count){
         
     }
 }
-
+ 
 //  function to generate html  of palette
 
 function generatePaletteHtml(type, container){
@@ -174,6 +174,7 @@ function generatePaletteHtml(type, container){
 
     let hsl = getHslFromcolor(color)
 
+    
     if(!hsl) return;
 
     let palette = [];
