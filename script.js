@@ -167,14 +167,12 @@ function generatePalette(hsl, type, count){
 }
  
 //  function to generate html  of palette
-
 function generatePaletteHtml(type, container){
     let color = currentColor;
     let count = currentCount;
 
     let hsl = getHslFromcolor(color)
 
-    
     if(!hsl) return;
 
     let palette = [];
