@@ -324,3 +324,12 @@ randomBtn.addEventListener("click", () => {
     generatePaletteHtml(currentType, paletteContainer);
     generatePaletteHtml("related", relatedContainer);
 })
+
+function copyToClipborad(text){
+    const input = document.createElement("input");
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    input.remove();
+}
