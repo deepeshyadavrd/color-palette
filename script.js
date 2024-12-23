@@ -183,6 +183,20 @@ function generatePaletteHtml(type, container){
             const colorEl = document.createElement("div");
             colorEl.classList.add("color");
             colorEl.style.backgroundColor = color;
+
+            colorEl.innerHTML = ` 
+                
+                    <div class="overlay">
+                        <div class="icons">
+                            <div class="copy-color">
+                                <i class="far fa-copy"></i>
+                            </div>
+                            <div class="generate-palette">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                        <div class="code">${color}</div>
+                    </div>`;
             container.appendChild(colorEl);
         });
 }
