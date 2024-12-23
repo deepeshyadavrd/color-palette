@@ -325,6 +325,18 @@ randomBtn.addEventListener("click", () => {
     generatePaletteHtml("related", relatedContainer);
 })
 
+const palettes = document.querySelectorAll(".palette");
+palettes.forEach((palette) => {
+    palette.addEventListener("click", (e) => {
+        const target = e.target;
+        const color = target.parentElement.parentElement.children[1].textContent;
+        // console.log(color)
+        if(target.classList.contains("copy-color")){
+            copyToClipborad(color);
+        }
+    })
+})
+
 function copyToClipborad(text){
     const input = document.createElement("input");
     input.value = text;
