@@ -326,26 +326,29 @@ randomBtn.addEventListener("click", () => {
 })
 
 const palettes = document.querySelectorAll(".palette");
+
 palettes.forEach((palette) => {
     palette.addEventListener("click", (e) => {
         const target = e.target;
-        const color = target.parentElement.parentElement.children[1].textContent;
-        // console.log(color)
-        toast(`Color ${color} copied to clipboard`);
-        if(target.classList.contains("copy-color")){
-            copyToClipborad(color);
-            
-        }
-    })
-})
 
-function copyToClipborad(text){
-    const input = document.createElement("input");
-    input.value = text;
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand("copy");
-    input.remove();
+        // Ensure that the target is the right element
+        if (target.classList.contains("copy-color") || target.closest('.copy-color')) {
+            const color = target.closest('.color').querySelector('.code').textContent;
+            copyToClipboard(color);
+        }
+    });
+});
+
+function copyToClipboard(text) {
+    // Use the Clipboard API
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            toast(`Color ${text} copied to clipboard`);
+
+        })
+        .catch(err => {
+            toast('Failed to copy: ', err);
+        });
 }
 
 function toast(message){
