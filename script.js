@@ -353,4 +353,14 @@ function toast(message){
     toast.classList.add("toast");
     toast.textContent = message;
     document.body.appendChild(toast);
+    setTimeout(()=>{
+        toast.classList.add("show");
+    }, 10);
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+        toast.addEventListener("transitionend", () => {
+            toast.remove();
+        });
+    }, 2000);
 }
