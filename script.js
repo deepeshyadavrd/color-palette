@@ -331,8 +331,10 @@ palettes.forEach((palette) => {
         const target = e.target;
         const color = target.parentElement.parentElement.children[1].textContent;
         // console.log(color)
+        toast(`Color ${color} copied to clipboard`);
         if(target.classList.contains("copy-color")){
             copyToClipborad(color);
+            
         }
     })
 })
@@ -344,4 +346,11 @@ function copyToClipborad(text){
     input.select();
     document.execCommand("copy");
     input.remove();
+}
+
+function toast(message){
+    const toast = document.createElement("div");
+    toast.classList.add("toast");
+    toast.textContent = message;
+    document.body.appendChild(toast);
 }

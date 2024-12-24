@@ -184,6 +184,9 @@ select#palette-count {
     gap: 12px;
     color: var(--tertiary-color);
 }
+/* .palette .color .icons {
+    pointer-events: none;
+} */
 
 .palette .color .icons div {
     width: 30px;
