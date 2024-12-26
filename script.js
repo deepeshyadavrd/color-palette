@@ -330,11 +330,19 @@ const palettes = document.querySelectorAll(".palette");
 palettes.forEach((palette) => {
     palette.addEventListener("click", (e) => {
         const target = e.target;
-
+        
+        const color = target.closest('.color').querySelector('.code').textContent;
         // Ensure that the target is the right element
         if (target.classList.contains("copy-color") || target.closest('.copy-color')) {
-            const color = target.closest('.color').querySelector('.code').textContent;
             copyToClipboard(color);
+        }
+
+        if(target.classList.contains("generate-palette") || target.closest('.generate-palette')){
+            searchInput.value = color;
+            searchColor.style.backgroundColor = color;
+            generatePaletteHtml(currentType, paletteContainer);
+            generatePaletteHtml("related", relatedContainer);
+            toast("Palette Generate for " + color);
         }
     });
 });
