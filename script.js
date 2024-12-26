@@ -188,10 +188,10 @@ function generatePaletteHtml(type, container){
                 
                     <div class="overlay">
                         <div class="icons">
-                            <div class="copy-color">
+                            <div class="copy-color" title="Copy color code">
                                 <i class="far fa-copy"></i>
                             </div>
-                            <div class="generate-palette">
+                            <div class="generate-palette" title="Generate Palette">
                                 <i class="fas fa-palette"></i>
                             </div>
                         </div>
