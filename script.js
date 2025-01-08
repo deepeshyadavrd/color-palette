@@ -376,7 +376,6 @@ function toast(message){
         });
     }, 2000);
 }
-
 searchImage.addEventListener("change", (e) => {
     const file = e.targetfiles[0];
     if(file) {
